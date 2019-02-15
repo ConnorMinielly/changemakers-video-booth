@@ -8,4 +8,4 @@ else
 	echo "USB drive already mounted! Good to go..."
 fi
 
-python3 $PWD/camera.py # run camera script
+python3 $PWD/camera_audo.py # run camera script

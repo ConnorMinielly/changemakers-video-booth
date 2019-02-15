@@ -10,8 +10,8 @@ from PIL import Image
 trigger = Button(2)
 camera = PiCamera()
 camera.resolution = (1920, 1080)
-usb_path="/media/pi/KINGSTON/"
-overlay = Image.open("overlay.png")
+usb_path="/media/pi/"
+overlay = Image.open("./overlay.png")
 pad = Image.new('RGBA', (
         ((overlay.size[0] + 31) // 32) * 32,
         ((overlay.size[1] + 15) // 16) * 16,
@@ -56,7 +56,7 @@ def capture_all():
     # create command to convert the .h264 file to an .mp4 
     mp4_subprocess = "MP4Box -add %s/%s.h264 %s/%s.mp4" % (rec_folder, recording_name, rec_folder, recording_name)
     # execute conversion command in terminal 
-    print("attempting to convert video...",  end="")
+    print("attempting to convert video...",  end='')
     call(mp4_subprocess, shell=True)
     print("success!")
     # remove original .h264 file.
@@ -69,3 +69,6 @@ def capture_all():
 trigger.when_pressed = capture_all
 
 pause()
+
+
+
